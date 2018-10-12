@@ -1,3 +1,5 @@
+<img src='https://travis-ci.org/neg0/php7-oop-test.svg?branch=master' alt='Built Status'>
+
 # bud Technical Test
  * Task I: Establishing Http connections: POST, GET, and DELETE with SSL Key and Certification
  * Task II: Translate Binary to readable English words
