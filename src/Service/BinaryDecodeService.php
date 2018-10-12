@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Model\BinaryDecode\BinaryDecodeInterface;
 
-class BinaryDecoder implements BinaryDecodeInterface
+class BinaryDecodeService implements BinaryDecodeInterface
 {
     /**
      * @var BinaryDecodeInterface

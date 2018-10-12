@@ -3,14 +3,14 @@
 namespace App\Tests\Service;
 
 use App\Model\BinaryDecode\BinaryDecodeAdapter;
-use App\Service\BinaryDecoder;
+use App\Service\BinaryDecodeService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class BinaryDecoderTest extends TestCase
+class BinaryDecodeServiceTest extends TestCase
 {
     /**
-     * @var BinaryDecoder
+     * @var BinaryDecodeService
      */
     private $sut;
 
@@ -23,12 +23,12 @@ class BinaryDecoderTest extends TestCase
     {
         $this->adapter = $this->getBinaryDecodeAdapter();
 
-        $this->sut = new BinaryDecoder($this->adapter);
+        $this->sut = new BinaryDecodeService($this->adapter);
     }
 
     public function testShouldBeInstantiable(): void
     {
-        $this->assertInstanceOf(BinaryDecoder::class, $this->sut);
+        $this->assertInstanceOf(BinaryDecodeService::class, $this->sut);
     }
 
     public function testItShouldConvertBinaryToString(): void
