@@ -1,0 +1,16 @@
+version: '2'
+services:
+  php:
+    image: php:cli-7.2
+    build:
+      context: .
+      dockerfile: php/Dockerfile
+    tty: true
+    volumes:
+      - '../:/var/usr/src'
+    networks:
+      - php-cli-network
+
+networks:
+  php-cli-network:
+    driver: bridge
