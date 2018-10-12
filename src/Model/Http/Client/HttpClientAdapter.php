@@ -31,16 +31,35 @@ class HttpClientAdapter implements HttpClientInterface
 
     public function post(string $path, array $options = []): HttpResponseInterface
     {
+        array_push($options, $this->createHeader());
+
         return $this->httpClient->post($path, $options);
     }
 
     public function get(string $path, array $options = []): HttpResponseInterface
     {
+        array_push($options, $this->createHeader());
+
         return $this->httpClient->get($path, $options);
     }
 
     public function delete(string $path, array $options = []): HttpResponseInterface
     {
+        array_push($options, $this->createHeader());
+        $options['headers']['x-torpedoes'] = 2;
+
         return $this->httpClient->delete($path, $options);
+    }
+
+    private function createHeader(): array
+    {
+        $accessToken = filter_input(INPUT_SERVER, 'access_token');
+
+        return [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $accessToken,
+                'Accept' => 'application/json',
+            ]
+        ];
     }
 }

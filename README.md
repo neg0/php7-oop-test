@@ -21,10 +21,9 @@ $: docker-compose -f docker/docker-compose.yml exec php ./bin/phpunit src/Tests 
  * Application is containerised using Docker for portability
  * UnitTests: 15 tests, 22 assertions
 
-> Improvements: Could use Symfony YAML Component to load Client Id, Client Secret and other private constants values.
+> Improvements: Could use Symfony YAML Component to load Client Id, Client Secret and other private constants.
 
-#### License
-**Creative Commons Attribution-NonCommercial-NoDerivs**
-*CC BY-NC-ND*
+### License
+Creative Commons Attribution-NonCommercial-NoDerivs *CC BY-NC-ND*
 
 <img src='https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png' alt='CC BY-NC-ND'>
