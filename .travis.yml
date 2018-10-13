@@ -10,8 +10,9 @@ services:
 script:
   - docker-compose -f docker/docker-compose.yml up --build -d
   - docker-compose -f docker/docker-compose.yml exec php composer install
-  - docker-compose -f docker/docker-compose.yml exec php ./bin/phpunit
+  - docker-compose -f docker/docker-compose.yml exec php ./bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
+  - docker-compose -f docker/docker-compose.yml exec php /bin/bash bash <(curl -s https://codecov.io/bash)
   - docker-compose -f docker/docker-compose.yml stop
   - docker-compose -f docker/docker-compose.yml down -v --remove-orphans
