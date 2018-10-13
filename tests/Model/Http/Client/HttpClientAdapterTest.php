@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Service;
+namespace Tests\Model\Http\Client;
 
 use App\Model\Http\Client\HttpClientAdapter;
 use App\Model\Http\Response\HttpResponse;

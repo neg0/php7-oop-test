@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Tests\Service;
+namespace Tests\Service;
 
 use App\Model\Http\Response\HttpResponseInterface;
-use App\Service\Exhaust\ExhaustRemoval;
+use App\Model\Prisoner;
 use App\Service\HttpClientService;
+use App\Service\Prisoner\PrisonerViewer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class ExhaustRemovalTest extends TestCase
+class PrisonerViewerTest extends TestCase
 {
-    private const MOCK_ACCEPTED_DELETE = 202;
-    private const MOCK_EXHAUST_ID = 1;
+    private const MOCK_PRISONER_SLUG = 'leia';
+    private const MOCK_PRISONER_RESPONSE = [ 'cell' => '010101', 'block' => '110100' ];
 
     /**
-     * @var ExhaustRemoval
+     * @var PrisonerViewer
      */
     private $sut;
 
@@ -33,27 +34,28 @@ class ExhaustRemovalTest extends TestCase
         $this->httpClient = $this->getHttpClient();
         $this->httpResponse = $this->getHttpResponse();
 
-        $this->sut = new ExhaustRemoval($this->httpClient);
+        $this->sut = new PrisonerViewer($this->httpClient);
     }
 
     public function testShouldBeInstantiable(): void
     {
-        $this->assertInstanceOf(ExhaustRemoval::class, $this->sut);
+        $this->assertInstanceOf(PrisonerViewer::class, $this->sut);
     }
 
-    public function testShouldRemoveExhaustById(): void
+    public function testShouldReturnPrisoner(): void
     {
         $this->httpResponse
             ->expects($this->once())
-            ->method('getCode')
-            ->willReturn(self::MOCK_ACCEPTED_DELETE);
+            ->method('getBody')
+            ->willReturn(\GuzzleHttp\json_encode(self::MOCK_PRISONER_RESPONSE, true));
 
         $this->httpClient
             ->expects($this->once())
-            ->method('delete')
+            ->method('get')
             ->willReturn($this->httpResponse);
 
-        $this->assertTrue($this->sut->remove(self::MOCK_EXHAUST_ID));
+        $response = $this->sut->view(self::MOCK_PRISONER_SLUG);
+        $this->assertInstanceOf(Prisoner::class, $response);
     }
 
     private function getHttpClient(): MockObject

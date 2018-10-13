@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Service;
+namespace Tests\Model\BinaryDecode;
 
 use App\Model\BinaryDecode\BinaryDecodeAdapter;
 use App\Model\BinaryDecode\BinaryDecodeInterface;

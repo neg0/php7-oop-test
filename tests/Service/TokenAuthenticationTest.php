@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Service;
+namespace Tests\Service;
 
 use App\Model\Http\Response\HttpResponseInterface;
 use App\Model\Http\Token\AuthToken;

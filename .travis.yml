@@ -10,7 +10,7 @@ services:
 script:
   - docker-compose -f docker/docker-compose.yml up --build -d
   - docker-compose -f docker/docker-compose.yml exec php composer install
-  - docker-compose -f docker/docker-compose.yml exec php ./bin/phpunit src/Tests --no-coverage
+  - docker-compose -f docker/docker-compose.yml exec php ./bin/phpunit
 
 after_success:
   - docker-compose -f docker/docker-compose.yml stop
