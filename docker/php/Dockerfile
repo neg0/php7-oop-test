@@ -27,4 +27,6 @@ RUN mkdir -p /var/usr/src
 
 VOLUME /var/usr/src
 
+ENV CODECOV_TOKEN="b64d234f-795d-4752-b8d7-341954670f78"
+
 WORKDIR /var/usr/src
