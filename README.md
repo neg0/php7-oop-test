@@ -19,7 +19,7 @@ $: docker-compose -f docker/docker-compose.yml exec php ./bin/phpunit src/Tests 
     * Base2n: Binary Encode and Decoder
  * Dependencies are injected to application using Adapter pattern to separate the layer of application according to Clean Architecture principles in software engineering
  * Application is containerised using Docker for portability
- * UnitTests: 15 tests, 22 assertions
+ * UnitTests: 21 tests, 32 assertions
 
 > Improvements: Could use Symfony YAML Component to load Client Id, Client Secret and other private constants.
 

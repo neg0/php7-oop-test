@@ -2,11 +2,11 @@
 
 namespace App\Tests\Service;
 
-use App\Model\Http\Client\HttpClientInterface;
 use App\Model\Http\Response\HttpResponseInterface;
 use App\Model\Http\Token\AuthToken;
 use App\Model\Http\Token\AuthTokenInterface;
 use App\Service\Auth\TokenAuthentication;
+use App\Service\HttpClientService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -27,7 +27,7 @@ class TokenAuthenticationTest extends TestCase
     private $sut;
 
     /**
-     * @var HttpClientInterface | MockObject
+     * @var HttpClientService | MockObject
      */
     private $httpClient;
 
@@ -69,7 +69,7 @@ class TokenAuthenticationTest extends TestCase
 
     private function getHttpClient(): MockObject
     {
-        return $this->createMock(HttpClientInterface::class);
+        return $this->createMock(HttpClientService::class);
     }
 
     private function getHttpResponse(): MockObject

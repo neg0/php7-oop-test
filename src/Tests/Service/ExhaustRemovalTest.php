@@ -2,9 +2,9 @@
 
 namespace App\Tests\Service;
 
-use App\Model\Http\Client\HttpClientInterface;
 use App\Model\Http\Response\HttpResponseInterface;
 use App\Service\Exhaust\ExhaustRemoval;
+use App\Service\HttpClientService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +19,7 @@ class ExhaustRemovalTest extends TestCase
     private $sut;
 
     /**
-     * @var HttpClientInterface | MockObject
+     * @var HttpClientService | MockObject
      */
     private $httpClient;
 
@@ -41,7 +41,7 @@ class ExhaustRemovalTest extends TestCase
         $this->assertInstanceOf(ExhaustRemoval::class, $this->sut);
     }
 
-    public function testShouldRemoveExhautById(): void
+    public function testShouldRemoveExhaustById(): void
     {
         $this->httpResponse
             ->expects($this->once())
@@ -58,7 +58,7 @@ class ExhaustRemovalTest extends TestCase
 
     private function getHttpClient(): MockObject
     {
-        return $this->createMock(HttpClientInterface::class);
+        return $this->createMock(HttpClientService::class);
     }
 
     private function getHttpResponse(): MockObject

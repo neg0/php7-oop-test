@@ -2,20 +2,20 @@
 
 namespace App\Service\Auth;
 
-use App\Model\Http\Client\HttpClientInterface;
 use App\Model\Http\Oauth\OauthRequest;
 use App\Model\Http\Token\AuthToken;
+use App\Service\HttpClientService;
 
 class TokenAuthentication
 {
     private const PATH = '/token';
 
     /**
-     * @var HttpClientInterface
+     * @var HttpClientService
      */
     private $httpClient;
 
-    public function __construct(HttpClientInterface $httpClient)
+    public function __construct(HttpClientService $httpClient)
     {
         $this->httpClient = $httpClient;
     }

@@ -2,19 +2,19 @@
 
 namespace App\Service\Prisoner;
 
-use App\Model\Http\Client\HttpClientInterface;
 use App\Model\Prisoner;
+use App\Service\HttpClientService;
 
 class PrisonerViewer
 {
     private const PATH = '/prisoner';
 
     /**
-     * @var HttpClientInterface
+     * @var HttpClientService
      */
     private $httpClient;
 
-    public function __construct(HttpClientInterface $httpClient)
+    public function __construct(HttpClientService $httpClient)
     {
         $this->httpClient = $httpClient;
     }

@@ -16,7 +16,7 @@ class HttpClientServiceTest extends TestCase
     private $sut;
 
     /**
-     * @var HttpClientInterface | MockObject
+     * @var HttpClientService | MockObject
      */
     private $adapter;
 
@@ -70,7 +70,7 @@ class HttpClientServiceTest extends TestCase
 
     private function getHttpClient(): MockObject
     {
-        return $this->createMock(HttpClientInterface::class);
+        return $this->createMock(HttpClientService::class);
     }
 
     private function getHttpResponse(): MockObject

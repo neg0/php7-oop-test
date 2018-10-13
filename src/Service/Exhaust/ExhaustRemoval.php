@@ -2,7 +2,7 @@
 
 namespace App\Service\Exhaust;
 
-use App\Model\Http\Client\HttpClientInterface;
+use App\Service\HttpClientService;
 
 class ExhaustRemoval
 {
@@ -10,11 +10,11 @@ class ExhaustRemoval
     private const ACCEPTED_RESPONSE_CODE = 202;
 
     /**
-     * @var HttpClientInterface
+     * @var HttpClientService
      */
     private $httpClient;
 
-    public function __construct(HttpClientInterface $httpClient)
+    public function __construct(HttpClientService $httpClient)
     {
         $this->httpClient = $httpClient;
     }
