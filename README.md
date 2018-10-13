@@ -1,4 +1,4 @@
-<img src='https://travis-ci.org/neg0/php7-oop-test.svg?branch=master' alt='Built Status'>
+<img src='https://travis-ci.org/neg0/php7-oop-test.svg?branch=master' alt='Built Status'>&nbsp;&nbsp;<img src='https://codecov.io/gh/neg0/php7-oop-test/graph/badge.svg' alt='code coverage badge'>
 
 # bud Technical Test
  * Task I: Establishing Http connections: POST, GET, and DELETE with SSL Key and Certification
